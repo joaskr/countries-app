@@ -5,6 +5,7 @@
 * {
   box-sizing: border-box;
   font-size: 16px;
+  font-family: 'Nunito Sans', sans-serif;
 }
 
 body {
@@ -12,4 +13,5 @@ body {
   padding: 0;
   font-family: 'Nunito Sans', sans-serif;
   @include theme-aware('background', 'color-background');
+  background-color: hsl(0, 0%, 98%);
 }

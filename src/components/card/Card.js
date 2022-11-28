@@ -8,7 +8,7 @@ function Card({ image, name, population, region, capital }) {
   return (
     <div className="card">
       <div className="card-header">
-        <img src={image} />
+        <img src={image} alt={'flag of ' + name} />
       </div>
       <div className="card-content">
         <Link to={`/countries/${name}`}>
