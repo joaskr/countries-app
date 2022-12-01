@@ -5,7 +5,7 @@ const Routing = () => {
   return (
     <Routes>
       <Route path="/countries" element={<Countries />} />
-      <Route path="/countries/:id" element={<CountryDetails />} />
+      <Route path="/countries/:countryName" element={<CountryDetails />} />
       <Route path="/" element={<Countries />} />
     </Routes>
   );
