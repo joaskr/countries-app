@@ -54,6 +54,7 @@ function Countries() {
                 population={country.population}
                 region={country.region}
                 capital={country.capital}
+                cca2={country.cca2}
               />
             );
           })

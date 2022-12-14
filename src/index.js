@@ -24,3 +24,5 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+//todo - search country, filter, dark mode, mobile view, add error msg toboth sites, creare 404

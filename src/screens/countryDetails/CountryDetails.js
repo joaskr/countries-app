@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import './CountryDetails.scss';
 import Button from '../../components/button/Button';
 import DataParagraph from '../../components/dataParagraph/DataParagraph';
-import { getCountryByName, getCountryByCode } from '../../middleware/index';
+import { getCountryByCode, getCountriesByCode } from '../../middleware/index';
 import Spinner from '../../components/spinner/Spinner';
 
 function CountryDetails() {
-  const { countryName } = useParams();
+  const { code } = useParams();
   const [countryData, setcountryData] = useState(false);
   const [tld, setTld] = useState('');
   const [nativeName, setNativeName] = useState('');
@@ -35,28 +35,26 @@ function CountryDetails() {
   };
 
   useEffect(() => {
-    getCountryByName(countryName)
+    getCountryByCode(code)
       .then((res) => {
-        setcountryData(...res.data);
-        res.data.map((country) => {
-          getDataFromArray(country.tld, setTld, ', ');
-          getDataFromArray(country.borders, setCodeString, ',');
-          getDataFromObject(country.name.nativeName, 'common', setNativeName);
-          getDataFromObject(country.currencies, 'name', setCurrencies);
-          getDataFromObject(country.languages, false, setLanguages);
-        });
+        setcountryData(res.data);
+        getDataFromArray(res.data.tld, setTld, ', ');
+        getDataFromArray(res.data.borders, setCodeString, ',');
+        getDataFromObject(res.data.name.nativeName, 'common', setNativeName);
+        getDataFromObject(res.data.currencies, 'name', setCurrencies);
+        getDataFromObject(res.data.languages, false, setLanguages);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [countryName]);
+  }, [code]);
 
   useEffect(() => {
     if (codeString) {
-      getCountryByCode(codeString).then((res) => {
+      getCountriesByCode(codeString).then((res) => {
         let bordersArray = [];
         res.data.map((country) => {
-          bordersArray.push(country.name.common);
+          bordersArray.push({ name: country.name.common, cca2: country.cca2 });
         });
         setBorders(bordersArray);
       });
@@ -98,7 +96,12 @@ function CountryDetails() {
               <strong>Border Countries:</strong>
               {borders.map((border, id) => {
                 return (
-                  <Button key={id} navButton={false} text={border} url={`/countries/${border}`} />
+                  <Button
+                    key={id}
+                    navButton={false}
+                    text={border.name}
+                    url={`/countries/${border.cca2}`}
+                  />
                 );
               })}
             </div>
