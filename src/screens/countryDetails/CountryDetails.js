@@ -3,65 +3,107 @@ import { useParams } from 'react-router-dom';
 import './CountryDetails.scss';
 import Button from '../../components/button/Button';
 import DataParagraph from '../../components/dataParagraph/DataParagraph';
-import { getCountryByName } from '../../middleware/index';
+import { getCountryByName, getCountryByCode } from '../../middleware/index';
 import Spinner from '../../components/spinner/Spinner';
 
 function CountryDetails() {
   const { countryName } = useParams();
-
   const [countryData, setcountryData] = useState(false);
+  const [tld, setTld] = useState('');
+  const [nativeName, setNativeName] = useState('');
+  const [currencies, setCurrencies] = useState('');
+  const [languages, setLanguages] = useState('');
+  const [codeString, setCodeString] = useState(null);
+  const [borders, setBorders] = useState([]);
+
+  const getDataFromArray = (dataArray, setFunction, joiner) => {
+    setFunction(dataArray.join(joiner));
+  };
+
+  const getDataFromObject = (dataObject, getter, setFunction) => {
+    Object.keys(dataObject).forEach((key) => {
+      let data = [];
+      let details = dataObject[key];
+      if (getter) {
+        let value = details[getter];
+        data.push(`${key}: ${value}`);
+      } else {
+        data.push(details);
+      }
+      getDataFromArray(data, setFunction, ', ');
+    });
+  };
+
   useEffect(() => {
     getCountryByName(countryName)
       .then((res) => {
-        setcountryData(res.data);
+        setcountryData(...res.data);
+        res.data.map((country) => {
+          getDataFromArray(country.tld, setTld, ', ');
+          getDataFromArray(country.borders, setCodeString, ',');
+          getDataFromObject(country.name.nativeName, 'common', setNativeName);
+          getDataFromObject(country.currencies, 'name', setCurrencies);
+          getDataFromObject(country.languages, false, setLanguages);
+        });
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [countryName]);
+
+  useEffect(() => {
+    if (codeString) {
+      getCountryByCode(codeString).then((res) => {
+        let bordersArray = [];
+        res.data.map((country) => {
+          bordersArray.push(country.name.common);
+        });
+        setBorders(bordersArray);
+      });
+    } else {
+      return;
+    }
+  }, [codeString]);
 
   return (
     <div className="country-details-wrapper">
       <header className="country-details-header">
         <Button navButton={true} text="Back" url="/countries" />
       </header>
-
       {countryData === false ? (
         <Spinner />
       ) : (
-        countryData.map((country, id) => {
-          return (
-            <main className="country-details-content" key={id}>
-              <div className="country-details-flag">
-                <img src={country.flags.png}></img>
+        <main className="country-details-content" key={countryData.name.common}>
+          <div className="country-details-flag">
+            <img src={countryData.flags.png}></img>
+          </div>
+          <section className="country-details-data">
+            <h2>{countryData.name.common}</h2>
+            <div className="country-details-data-columns">
+              <div className="country-details-data-column">
+                <DataParagraph category="Native Name" info={nativeName} />
+                <DataParagraph category="Population" info={countryData.population} />
+                <DataParagraph category="Region" info={countryData.region} />
+                <DataParagraph category="Sub Region" info={countryData.subregion} />
+                <DataParagraph category="Capital" info={countryData.capital} />
               </div>
-              <section className="country-details-data">
-                <h2>{country.name.common}</h2>
-                <div className="country-details-data-columns">
-                  <div className="country-details-data-column">
-                    <DataParagraph category="Native Name" info={country.name.common} />
-                    <DataParagraph category="Population" info={country.population} />
-                    <DataParagraph category="Region" info={country.region} />
-                    <DataParagraph category="Sub Region" info={country.subregion} />
-                    <DataParagraph category="Capital" info={country.capital} />
-                  </div>
-                  <div className="country-details-data-column">
-                    <DataParagraph category="Top Level Domain" info={country.tld[0]} />
-                    <DataParagraph category="Currencies" info={country.name.common} />
-                    <DataParagraph category="Languages" info={country.name.common} />
-                  </div>
-                </div>
+              <div className="country-details-data-column">
+                <DataParagraph category="Top Level Domain" info={tld} />
+                <DataParagraph category="Currencies" info={currencies} />
+                <DataParagraph category="Languages" info={languages} />
+              </div>
+            </div>
 
-                <div className="country-details-others">
-                  <strong>Border Countries:</strong>
-                  <Button navButton={false} text="Country1" url="/countries" />
-                  <Button navButton={false} text="Country2" url="/countries" />
-                  <Button navButton={false} text="Country3" url="/countries" />
-                </div>
-              </section>
-            </main>
-          );
-        })
+            <div className="country-details-others">
+              <strong>Border Countries:</strong>
+              {borders.map((border, id) => {
+                return (
+                  <Button key={id} navButton={false} text={border} url={`/countries/${border}`} />
+                );
+              })}
+            </div>
+          </section>
+        </main>
       )}
     </div>
   );
