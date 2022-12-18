@@ -8,6 +8,9 @@ import { getCountries } from '../../middleware/index';
 
 function Countries() {
   const [countries, setCountries] = useState(false);
+  // eslint-disable-next-line
+  const [searchTerm, setSearchTerm] = useState('');
+
   useEffect(() => {
     getCountries()
       .then((res) => {
@@ -17,6 +20,10 @@ function Countries() {
         console.log(err);
       });
   }, []);
+
+  const handleChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <div className="countries-wrapper">
@@ -28,6 +35,7 @@ function Countries() {
             type="text"
             placeholder="Search for a country..."
             name="country"
+            onChange={handleChange}
           />
         </div>
         <div className="select-container">
