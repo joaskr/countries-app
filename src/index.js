@@ -25,4 +25,4 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-//todo - search country, filter, dark mode, mobile view, add error msg toboth sites, creare 404
+//todo - dark mode, mobile view, add error msg to both sites, create 404, pagination

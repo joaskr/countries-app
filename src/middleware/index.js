@@ -19,5 +19,5 @@ export const getCountryByCode = (code) => {
 };
 
 export const getCountriesByCode = (codes) => {
-  return axios.get(`/alpha?codes=${codes}?fields=name`);
+  return axios.get(`/alpha?codes=${codes}`);
 };
