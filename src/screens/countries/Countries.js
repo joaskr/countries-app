@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Countries.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
 import Card from '../../components/card/Card';
 import Spinner from '../../components/spinner/Spinner';
-import { getCountries } from '../../middleware/index';
+import { getCountries, getCountriesbyName, getCountryByRegion } from '../../middleware/index';
+import Input from '../../components/input/Input';
+import SelectInput from '../../components/selectInput/SelectInput';
 
 function Countries() {
   const [countries, setCountries] = useState(false);
@@ -12,6 +13,10 @@ function Countries() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    getAllCountries();
+  }, []);
+
+  const getAllCountries = () => {
     getCountries()
       .then((res) => {
         setCountries(res.data);
@@ -19,35 +24,42 @@ function Countries() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  };
 
-  const handleChange = (e) => {
+  const getFilteredCountries = (e) => {
+    if (e.target.value === '') {
+      getAllCountries();
+    } else {
+      getCountriesbyName(e.target.value)
+        .then((res) => {
+          setCountries(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
+
+  const selectEventHandler = (e) => {
     setSearchTerm(e.target.value);
+    if (e.target.value === '') {
+      getAllCountries();
+    } else {
+      getCountryByRegion(e.target.value)
+        .then((res) => {
+          setCountries(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   return (
     <div className="countries-wrapper">
       <header className="countries-header">
-        <div className="input-container">
-          <FontAwesomeIcon icon={faMagnifyingGlass} className="search-icon" />
-          <input
-            className="input-field"
-            type="text"
-            placeholder="Search for a country..."
-            name="country"
-            onChange={handleChange}
-          />
-        </div>
-        <div className="select-container">
-          <select className="select-field">
-            <option value="">Filter by Region</option>
-            <option value="africa">Africa</option>
-            <option value="america">America</option>
-            <option value="asia">Asia</option>
-            <option value="europe">Europe</option>
-            <option value="oceania">Oceania</option>
-          </select>
-        </div>
+        <Input onChangeFunc={getFilteredCountries} searchTerm={searchTerm} />
+        <SelectInput onChangeFunc={selectEventHandler} />
       </header>
       <main className="countries-content">
         {countries === false ? (

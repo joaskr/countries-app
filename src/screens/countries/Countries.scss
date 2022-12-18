@@ -14,58 +14,6 @@
   margin-bottom: 40px;
 }
 
-.input-container {
-  display: flex;
-  align-items: center;
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  grid-area: 1 / 1 / 2 / 3;
-  -webkit-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  -moz-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-}
-
-.search-icon {
-  text-align: center;
-  border: 1px solid hsl(0, 0%, 100%);
-  padding: 10px 20px;
-  color: hsl(0, 0%, 52%);
-}
-
-.input-field {
-  outline: none;
-  border: none;
-  padding: 10px;
-  color: hsl(0, 0%, 52%);
-}
-
-.input-field:focus {
-  border: none;
-}
-
-.select-container {
-  grid-area: 1 / 7 / 2 / 8;
-  background-color: hsl(0, 0%, 100%);
-  border-radius: 5px;
-  border: none;
-  -webkit-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  -moz-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-}
-
-.select-field {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid hsl(0, 0%, 100%);
-  border-radius: 5px;
-  outline: none;
-}
-
-.select-field:focus {
-  border: 1px solid hsl(0, 0%, 100%);
-  outline: none;
-}
-
 .countries-content {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
