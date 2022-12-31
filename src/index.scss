@@ -13,4 +13,5 @@ body {
   padding: 0;
   font-family: 'Nunito Sans', sans-serif;
   @include theme-aware('background-color', 'color-background');
+  @include theme-aware('color', 'color-text');
 }
