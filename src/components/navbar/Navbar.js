@@ -5,7 +5,7 @@ import './Navbar.scss';
 
 function Navbar() {
   return (
-    <nav className="navbar light-theme">
+    <nav className="navbar">
       <Link to={`/`}>
         <h1>Where in the world?</h1>
       </Link>
