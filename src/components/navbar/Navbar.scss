@@ -1,3 +1,6 @@
+@import "../../utilities/mixins";
+@import "../../utilities/color-palette";
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -13,5 +16,6 @@
   }
   a {
     text-decoration: none;
+    @include theme-aware('color', 'color-text');
   }
 }

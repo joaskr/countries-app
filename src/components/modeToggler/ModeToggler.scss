@@ -1,5 +1,9 @@
+@import "../../utilities/mixins";
+@import "../../utilities/color-palette";
+
 .toggler-btn {
-  background-color: hsl(0, 0%, 100%);
+  @include theme-aware('background-color', 'color-background');
+  @include theme-aware('color', 'color-text');
   border: none;
   font-size: 1rem;
   cursor: pointer;
