@@ -4,18 +4,16 @@
 .input-container {
   display: flex;
   align-items: center;
-  @include theme-aware('background-color', 'color-element');
+  @include theme-aware('background-color', 'color-elements');
   border-radius: 5px;
   grid-area: 1 / 1 / 2 / 3;
-  -webkit-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  -moz-box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
-  box-shadow: 0px 0px 10px -5px rgba(133, 133, 133, 1);
+  @include theme-aware('box-shadow', 'color-shadow');
 }
 
 .search-icon {
   text-align: center;
-  border: 1px solid none;
-  @include theme-aware('border-color', 'color-element');
+  border: 1px solid;
+  @include theme-aware('border-color', 'color-elements');
   padding: 10px 20px;
   @include theme-aware('color', 'color-text');
 }
@@ -27,6 +25,10 @@
   padding: 10px;
   @include theme-aware('color', 'color-text');
   background: none;
+}
+
+input::placeholder {
+  @include theme-aware('color', 'color-text');
 }
 
 .input-field:focus {

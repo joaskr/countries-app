@@ -2,7 +2,7 @@
 @import "../../utilities/color-palette";
 
 .toggler-btn {
-  @include theme-aware('background-color', 'color-background');
+  @include theme-aware('background-color', 'color-elements');
   @include theme-aware('color', 'color-text');
   border: none;
   font-size: 1rem;

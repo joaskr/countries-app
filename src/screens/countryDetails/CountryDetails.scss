@@ -1,6 +1,9 @@
+@import "../../utilities/mixins";
+@import "../../utilities/color-palette";
+
 .country-details-wrapper {
-  background-color: hsl(0, 0%, 98%);
-  color: hsl(200, 15%, 8%);
+  @include theme-aware('background-color', 'color-background');
+  @include theme-aware('color', 'color-text');
   padding: 40px 80px;
 }
 
@@ -9,9 +12,6 @@
 }
 
 .country-details-content {
-  // width: 100vw;
-  // display: flex;
-  // align-items: center;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr;
@@ -20,7 +20,6 @@
 }
 
 .country-details-flag {
-  // width: 35vw;
   grid-area: 1 / 1 / 2 / 5;
   height: auto;
   img {
