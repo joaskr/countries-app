@@ -4,12 +4,14 @@ $themes: (
     color-elements: hsl(0, 0%, 100%),
     color-input:hsl(0, 0%, 52%),
     color-text: hsl(200, 15%, 8%),
-    color-shadow: 0px 0px 10px -5px hsl(0, 0%, 52%)
+    color-shadow: 0px 0px 10px -5px hsl(0, 0%, 52%),
+    color-spinner: hsl(200, 15%, 8%) transparent hsl(200, 15%, 8%) transparent
   ),
   dark: (
     color-background: hsl(207, 26%, 17%),
     color-elements: hsl(209, 23%, 22%),
     color-text: hsl(0, 0%, 100%),
-    color-shadow: 0px 0px 10px -5px hsl(207, 26%, 14%)
+    color-shadow: 0px 0px 10px -5px hsl(207, 26%, 14%),
+    color-spinner: hsl(0, 0%, 100%) transparent hsl(0, 0%, 100%) transparent
   )
 );

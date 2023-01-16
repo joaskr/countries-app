@@ -9,7 +9,6 @@ import SelectInput from '../../components/selectInput/SelectInput';
 
 function Countries() {
   const [countries, setCountries] = useState(false);
-  // eslint-disable-next-line
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {

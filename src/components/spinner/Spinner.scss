@@ -1,7 +1,11 @@
+@import "../../utilities/mixins";
+@import "../../utilities/color-palette";
+
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
+  grid-column-start: 3;
 }
 .lds-dual-ring:after {
   content: " ";
@@ -11,7 +15,7 @@
   margin: 8px;
   border-radius: 50%;
   border: 6px solid hsl(200, 15%, 8%);
-  border-color: hsl(200, 15%, 8%) transparent hsl(200, 15%, 8%) transparent;
+  @include theme-aware('border-color', 'color-spinner');
   animation: lds-dual-ring 1.2s linear infinite;
 }
 @keyframes lds-dual-ring {
