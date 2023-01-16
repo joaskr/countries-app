@@ -5,16 +5,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 80px;
+  padding: 5px 24px;
   @include theme-aware('box-shadow', 'color-shadow');
   @include theme-aware('background', 'color-elements');
   position: relative;
   z-index: 10;
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   a {
     text-decoration: none;
     @include theme-aware('color', 'color-text');
+  }
+}
+
+
+@media (min-width: 1000px) {
+  .navbar {
+    padding: 5px 80px;
+  }
+  h1 {
+    font-size: 1.5rem;
   }
 }

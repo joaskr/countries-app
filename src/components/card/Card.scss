@@ -3,6 +3,7 @@
 
 .card {
   width: 100%;
+  min-height: fit-content;
   @include theme-aware('background-color', 'color-elements');
   border-radius: 5px;
   @include theme-aware('box-shadow', 'color-shadow');
@@ -20,6 +21,7 @@
 
 .card-content {
   padding: 30px 25px;
+  min-height: 270px;
   h2 {
     font-size: 1.3rem;
     margin: 0;

@@ -2,7 +2,7 @@
 @import "../../utilities/color-palette";
 
 .select-container {
-  grid-area: 1 / 7 / 2 / 8;
+  width: 50%;
   border-radius: 5px;
   border: none;
   @include theme-aware('box-shadow', 'color-shadow');
@@ -28,3 +28,11 @@ select {
   @include theme-aware('border-color', 'color-elements');
   outline: none;
 }
+
+
+@media (min-width: 1000px) {
+  .select-container {
+    grid-area: 1 / 7 / 2 / 8;
+  }
+}
+

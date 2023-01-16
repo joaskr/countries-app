@@ -5,8 +5,14 @@
   @include theme-aware('background-color', 'color-elements');
   @include theme-aware('color', 'color-text');
   border: none;
-  font-size: 1rem;
   cursor: pointer;
+  width: fit-content;
+  display: flex;
+  padding: 0;
+  strong {
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
 }
 .toggler-icon {
   margin-right: 10px;

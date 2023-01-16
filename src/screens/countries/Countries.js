@@ -33,8 +33,15 @@ function Countries() {
         .then((res) => {
           setCountries(res.data);
         })
-        .catch((err) => {
-          console.log(err);
+        .catch(() => {
+          setCountries([
+            {
+              flags: {
+                png: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80'
+              },
+              name: { common: 'Country Not found' }
+            }
+          ]);
         });
     }
   };
