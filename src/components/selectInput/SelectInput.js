@@ -4,7 +4,7 @@ import './SelectInput.scss';
 function SelectInput({ onChangeFunc }) {
   return (
     <div className="select-container">
-      <select className="select-field" onChange={onChangeFunc}>
+      <select className="select-field" onChange={onChangeFunc} aria-label="State">
         <option value="">Filter by Region</option>
         <option value="africa">Africa</option>
         <option value="america">America</option>
