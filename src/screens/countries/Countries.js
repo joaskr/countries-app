@@ -6,7 +6,7 @@ import Spinner from '../../components/spinner/Spinner';
 import { getCountries, getCountriesbyName, getCountryByRegion } from '../../middleware/index';
 import Input from '../../components/input/Input';
 import SelectInput from '../../components/selectInput/SelectInput';
-// import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Countries() {
   const [countries, setCountries] = useState(false);
@@ -15,12 +15,12 @@ function Countries() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    setLoading(true);
     getAllCountries();
   }, []);
 
   const getAllCountries = () => {
     setError(null);
-    setLoading(true);
     getCountries()
       .then((res) => {
         setCountries(res.data);
@@ -79,7 +79,7 @@ function Countries() {
           <SelectInput onChangeFunc={selectEventHandler} />
         </header>
         <main>
-          <div className="not-found-container">
+          <div className="not-found-container not-found-wrong">
             <h2 className="not-found-header">Something went wrong.</h2>
             <p>{error.message}</p>
           </div>
@@ -94,10 +94,10 @@ function Countries() {
         <Input onChangeFunc={getFilteredCountries} searchTerm={searchTerm} />
         <SelectInput onChangeFunc={selectEventHandler} />
       </header>
-      <main className="countries-content">
-        {countries === false
-          ? null
-          : countries.map((country, id) => {
+      <motion.main layout className="countries-content">
+        {countries === false ? null : (
+          <AnimatePresence>
+            {countries.map((country, id) => {
               return (
                 <Card
                   key={id}
@@ -110,7 +110,9 @@ function Countries() {
                 />
               );
             })}
-      </main>
+          </AnimatePresence>
+        )}
+      </motion.main>
     </div>
   );
 }
