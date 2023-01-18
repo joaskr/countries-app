@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 24px;
+  padding: 0.313rem 1.5rem;
   @include theme-aware('box-shadow', 'color-shadow');
   @include theme-aware('background', 'color-elements');
   position: relative;
@@ -22,7 +22,7 @@
 
 @media (min-width: 1000px) {
   .navbar {
-    padding: 5px 80px;
+    padding: 0.313rem 5rem;
   }
   h1 {
     font-size: 1.5rem;

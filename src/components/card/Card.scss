@@ -5,6 +5,8 @@
   @include theme-aware('background-color', 'color-elements');
   border-radius: 5px;
   @include theme-aware('box-shadow', 'color-shadow');
+  width: 21.875rem;
+  height: fit-content;
 }
 
 .card-header {
@@ -18,9 +20,10 @@
 }
 
 .card-content {
-  padding: 30px 25px;
+  padding: 1.875rem 1.563rem;
   h2 {
     font-size: 1.3rem;
+    padding-bottom: 0.125rem;
     margin: 0;
   }
   a {
@@ -28,3 +31,15 @@
     @include theme-aware('color', 'color-text');
   }
 }
+
+.card-link {
+  text-decoration: none;
+  @include theme-aware('color', 'color-text');
+}
+
+@media (min-width: 500px) { 
+  .card {
+    height: auto;
+  }
+}
+

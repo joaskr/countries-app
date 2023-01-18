@@ -14,7 +14,7 @@
   text-align: center;
   border: 1px solid;
   @include theme-aware('border-color', 'color-elements');
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   @include theme-aware('color', 'color-text');
 }
 
@@ -22,7 +22,7 @@
   outline: none;
   border: none;
   width: 100%;
-  padding: 10px;
+  padding: 0.625rem;
   @include theme-aware('color', 'color-text');
   background: none;
 }

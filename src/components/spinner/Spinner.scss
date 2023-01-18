@@ -3,22 +3,22 @@
 
 .lds-dual-ring {
   display: inline-block;
-  width: 80px;
-  height: 80px;
-  grid-column-start: 3;
-  margin: auto;
+  width: 5rem;
+  height: 5rem;
 }
+
 .lds-dual-ring:after {
   content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 8px;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.5rem;
   border-radius: 50%;
   border: 6px solid hsl(200, 15%, 8%);
   @include theme-aware('border-color', 'color-spinner');
   animation: lds-dual-ring 1.2s linear infinite;
 }
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);

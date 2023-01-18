@@ -4,11 +4,11 @@
 .country-details-wrapper {
   @include theme-aware('background-color', 'color-background');
   @include theme-aware('color', 'color-text');
-  padding: 40px 24px;;
+  padding: 2.5rem 1.5rem;
 }
 
 .country-details-header {
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
 }
 
 .country-details-content {
@@ -21,7 +21,7 @@
 .country-details-data {
   h2 {
     font-size: 1.8rem;
-    margin-top: 40px;
+    margin-top: 2.5rem;
   }
 }
 
@@ -31,13 +31,13 @@
 }
 
 .country-details-data-column {
-  margin-right: 120px;
+  margin-right: 7.5rem;
 }
 
 .country-details-others {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 3.75rem;
   & > * button {
     margin-left: 0;
   }
@@ -45,14 +45,14 @@
 
 @media (min-width: 1000px) {
   .country-details-wrapper {
-    padding: 40px 80px;
+    padding: 2.5rem 5rem;
   }
 
   .country-details-content {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: 1fr;
-    grid-column-gap: 25px;
+    grid-column-gap: 1.563rem;
     grid-row-gap: 0px;
   }
 
@@ -80,15 +80,15 @@
   }
 
   .country-details-others {
-    margin-top: 60px;
+    margin-top: 3.75rem;
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
     & > * {
-      margin-right: 20px;
+      margin-right: 1.25rem;
     }
     & > * button {
-      margin-left: 5px;
+      margin-left: 0.313rem;
     }
   }
 }
