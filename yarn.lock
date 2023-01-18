@@ -1446,6 +1446,18 @@
   "resolved" "https://registry.npmjs.org/@csstools/selector-specificity/-/selector-specificity-2.0.2.tgz"
   "version" "2.0.2"
 
+"@emotion/is-prop-valid@^0.8.2":
+  "integrity" "sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA=="
+  "resolved" "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz"
+  "version" "0.8.8"
+  dependencies:
+    "@emotion/memoize" "0.7.4"
+
+"@emotion/memoize@0.7.4":
+  "integrity" "sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw=="
+  "resolved" "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.4.tgz"
+  "version" "0.7.4"
+
 "@eslint/eslintrc@^1.3.3":
   "integrity" "sha512-uj3pT6Mg+3t39fvLrj8iuCIJ38zKO9FpGtJ4BBJebJhEwjoT+KLVNCcHT5QC9NGRIEi7fZ0ZR8YRb884auB4Lg=="
   "resolved" "https://registry.npmjs.org/@eslint/eslintrc/-/eslintrc-1.3.3.tgz"
@@ -1802,7 +1814,7 @@
     "@motionone/utils" "^10.15.1"
     "tslib" "^2.3.1"
 
-"@motionone/dom@^10.15.5":
+"@motionone/dom@^10.15.3", "@motionone/dom@^10.15.5":
   "integrity" "sha512-Xc5avlgyh3xukU9tydh9+8mB8+2zAq+WlLsC3eEIp7Ax7DnXgY7Bj/iv0a4X2R9z9ZFZiaXK3BO0xMYHKbAAdA=="
   "resolved" "https://registry.npmjs.org/@motionone/dom/-/dom-10.15.5.tgz"
   "version" "10.15.5"
@@ -4906,6 +4918,17 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.2.0.tgz"
   "version" "4.2.0"
 
+"framer-motion@^8.5.0":
+  "integrity" "sha512-z5hQvIa+9uFcA2aFmT+6XsUfuVPl9Y1uhs5yntxU1Q0E6hm4wDRpvFlB/yYN/cdfXUctf/1Q1Rep/dqOipz8sg=="
+  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-8.5.0.tgz"
+  "version" "8.5.0"
+  dependencies:
+    "@motionone/dom" "^10.15.3"
+    "hey-listen" "^1.0.8"
+    "tslib" "^2.4.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
 "fresh@0.5.2":
   "integrity" "sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac="
   "resolved" "https://registry.npmjs.org/fresh/-/fresh-0.5.2.tgz"
@@ -7949,7 +7972,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@^18.2.0", "react-dom@>=16.8":
+"react-dom@^18.0.0", "react-dom@^18.2.0", "react-dom@>=16.8":
   "version" "18.2.0"
   dependencies:
     "loose-envify" "^1.1.0"
@@ -8050,7 +8073,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@^18.2.0", "react@>= 16", "react@>=16.3", "react@>=16.8":
+"react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>=16.3", "react@>=16.8":
   "version" "18.2.0"
   dependencies:
     "loose-envify" "^1.1.0"
@@ -9186,7 +9209,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.11.1.tgz"
   "version" "1.11.1"
 
-"tslib@^2.0.3", "tslib@^2.3.1":
+"tslib@^2.0.3", "tslib@^2.3.1", "tslib@^2.4.0":
   "integrity" "sha512-tGyy4dAjRIEwI7BzsB0lynWgOpfqjUdq91XXAlIWD2OwKBH7oCl/GZG/HT4BOHrTlPMOASlMQ7veyTqpmRcrNA=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.4.1.tgz"
   "version" "2.4.1"
